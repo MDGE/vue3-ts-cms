@@ -1,0 +1,11 @@
+###
+ # @Author: 崔浩然
+ # @Email：cuihaoran@hualala.com
+ # @Date: 2022-08-08 11:31:27
+ # @Description: 页面/组件/功能的描述
+ # @FilePath: /vue3-ts-cms/.husky/pre-commit
+###
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint
