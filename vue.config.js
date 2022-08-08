@@ -6,6 +6,10 @@
  * @FilePath: /vue3-ts-cms/vue.config.js
  */
 const { defineConfig } = require('@vue/cli-service')
+// element-plus 按需引入
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 module.exports = defineConfig({
   // 1. 配置方式一：由CLI提供配置参数，会与webpack的配置的参数名不太一样。
@@ -17,7 +21,15 @@ module.exports = defineConfig({
       alias: {
         '@components': '@/components'
       }
-    }
+    },
+    plugins: [
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
+      })
+    ]
   }
   // 配置方式三：chainWebpack
   // chainWebpack: config => {
