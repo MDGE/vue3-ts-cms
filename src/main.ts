@@ -12,9 +12,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import './service/axiosDemo'
+
 const app = createApp(App)
 app.use(router)
 app.use(store)
-// 全局注册element-plus
+// 全局注册element-plus，建议使用按需引入，本项目使用的就是按需引入。
 // app.use(ElementPlus)
 app.mount('#app')
+
+console.log(process.env.NODE_ENV)
+console.log(process.env.VUE_APP_FLAG)
+console.log(process.env.VUE_APP_BASE_URL)

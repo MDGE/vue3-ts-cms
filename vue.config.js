@@ -17,10 +17,16 @@ module.exports = defineConfig({
   outputDir: 'build',
   // 2. 配置方式二：在configureWebpack中写webpack的配置，最终会与Vue-CLI的webpack的配置合并。
   configureWebpack: {
+    output: {
+      publicPath: '/'
+    },
     resolve: {
       alias: {
         '@components': '@/components'
       }
+    },
+    experiments: {
+      topLevelAwait: true
     },
     plugins: [
       AutoImport({
