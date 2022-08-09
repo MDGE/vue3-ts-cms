@@ -12,7 +12,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import './service/axiosDemo'
+import { hrRequest } from './service'
 
 const app = createApp(App)
 app.use(router)
@@ -21,6 +21,23 @@ app.use(store)
 // app.use(ElementPlus)
 app.mount('#app')
 
-console.log(process.env.NODE_ENV)
-console.log(process.env.VUE_APP_FLAG)
-console.log(process.env.VUE_APP_BASE_URL)
+interface GoodList {
+  code: number
+  data: {
+    list: unknown[]
+    totalCount: number
+  }
+}
+
+hrRequest
+  .request<GoodList>({
+    url: '/goods/list',
+    method: 'POST',
+    showLoading: true
+  })
+  .then((res) => {
+    console.log(res.code)
+    console.log(res.data)
+    console.log(res.data.list)
+    console.log(res.data.totalCount)
+  })

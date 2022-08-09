@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
+    "target": "esnext",   // 目标代码(ts -> js)
+    "module": "esnext",   // 目标代码所使用的模块化类型
+    "strict": true,     // 是否使用严格模式
     "jsx": "preserve",
     "moduleResolution": "node",
     "skipLibCheck": true,
