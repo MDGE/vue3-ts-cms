@@ -3,21 +3,24 @@
     "target": "esnext",   // 目标代码(ts -> js)
     "module": "esnext",   // 目标代码所使用的模块化类型
     "strict": true,     // 是否使用严格模式
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",  // 对jsx的处理方式：preserve(保留原样)、react(使用react)、react-native(使用react-native)
+    "moduleResolution": "node",   // 模块解析方式：node(使用node的模块解析)、classic(使用经典的模块解析)
+    "skipLibCheck": true,   // 是否跳过编译器的库检查
+    // esmodule 和 commonJS的模块化能否一起使用
+    "esModuleInterop": true,  // 是否允许使用esModuleInterop
+    "allowSyntheticDefaultImports": true, // 是否允许使用synthetic default imports
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": ["webpack-env"],
+    "sourceMap": true,  // 是否生成sourceMap
+    "baseUrl": ".",   // 文件路径解析时，基本的url
+    "types": ["webpack-env"],   // 指定类型文件的位置
+    // 路径解析与webpackp alias配合使用
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]  // 指定项目中的基本库（主要是类型）
   },
+  // 当前需要编译解析的ts代码文件
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -25,5 +28,6 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
+  // 当前不需要编译解析的ts代码文件
   "exclude": ["node_modules"]
 }
